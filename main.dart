@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -26,6 +26,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    outputSummary = "初期表示";
+
+    super.initState();
+  }
+
   void _judgePrimeNumbers(String inputText) {
     setState(() {
       int input = int.parse(inputText);
@@ -53,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  String outputSummary = '';
+  late String outputSummary;
   String outputList = '';
   final myController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
